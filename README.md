@@ -59,9 +59,19 @@ Displays results to the user
 
 
 
-Combined Decision Logic
+### Combined Decision Logic
 The system uses both predictions to provide a nuanced result:
 
-Both say REAL → Final prediction is REAL
-Both say FAKE → Final prediction is FAKE
-Conflicting results → Indicates uncertainty (FAKE/REAL or REAL/FAKE)
+- Both say REAL → Final prediction is REAL
+- Both say FAKE → Final prediction is FAKE
+- Conflicting results → Indicates uncertainty (FAKE/REAL or REAL/FAKE)
+
+## WorkFlow Diagram :
+![image](https://github.com/user-attachments/assets/9c4290a2-f9f6-4b78-8f37-940635dd9714)
+
+## Output ScreenShots : 
+![Screenshot 2025-04-20 005723](https://github.com/user-attachments/assets/02d3914a-7e9d-46e5-a4bc-935be812a68e)
+![Screenshot 2025-04-20 010021](https://github.com/user-attachments/assets/954d602b-2311-446a-b24b-23216ef2ea56)
+![Screenshot 2025-04-20 010121](https://github.com/user-attachments/assets/7ca3c706-6d99-4ad0-ba54-a4258c762c49)
+
+
