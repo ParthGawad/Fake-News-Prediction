@@ -24,7 +24,7 @@ def fake_news_det(news):
     return prediction
 
 def generate_gemini_prediction(news):
-    client = genai.Client(api_key="AIzaSyCICWZg313L7l3rGAMSSyvH9WgkeFk5oJU")
+    client = genai.Client(api_key="Put your own google geminai api key")
     response = client.models.generate_content(
         model="gemini-2.0-flash", 
         contents="A news string will be given below as a input to you, determine whether the news is Real or Fake by Analyzing all the available resources & news websites. return 'REAL' if the news is true return 'FAKE' if the news is false(only return true or false, no need to explain) : \n " + news
