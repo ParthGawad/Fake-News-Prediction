@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fight Misinformation</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <button onclick="toggleDarkMode()" class="theme-toggle">
+    <span class="light-mode">🌙</span>
+    <span class="dark-mode">🌞</span>
+  </button>
+
+  <div class="container">
+    <!-- Info Section -->
+    <section class="info-section fade-on-scroll">
+      <h1>Fake News Prediction</h1>
+      <h2>Fight Misinformation</h2>
+      <p>In today's digital age, fake news spreads faster than truth. Let's change that together by understanding, identifying, and combating misinformation.</p>
+    </section>
+
+    <div class="grid-section">
+      <div class="info-card fade-on-scroll">
+        <img
+          src="https://images.unsplash.com/photo-1590247813693-5541d1c609fd?auto=format&fit=crop&w=800&q=80"
+          alt="Digital misinformation"
+        />
+        <div class="card-content">
+          <h2>The Impact of Misinformation</h2>
+          <p>Fake news can have serious consequences on society, influencing opinions, decisions, and even democratic processes.
+            Understanding how to identify and combat misinformation is crucial in our connected world.</p>
+          <div class="feature-grid">
+            <div class="feature">
+              <span class="icon">🧠</span>
+              <span>Critical Thinking</span>
+            </div>
+            <div class="feature">
+              <span class="icon">🎯</span>
+              <span>Targeted Impact</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card fade-on-scroll">
+        <img
+          src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=800&q=80"
+          alt="Fact checking"
+        />
+        <div class="card-content">
+          <h2>Why Fact-Checking Matters</h2>
+          <p>Fact-checking helps maintain the integrity of information and promotes a well-informed society.
+            Our verification tools assist in identifying potential fake news by analyzing patterns and content.</p>
+          <div class="feature-grid">
+            <div class="feature">
+              <span class="icon">🌍</span>
+              <span>Global Impact</span>
+            </div>
+            <div class="feature">
+              <span class="icon">👥</span>
+              <span>Social Trust</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="triple-grid fade-on-scroll">
+      <div class="info-card small">
+        <img
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+          alt="Social media impact"
+        />
+        <div class="card-content">
+          <h3>Social Media's Role</h3>
+          <p>Social platforms can amplify misinformation rapidly. Learn to verify before sharing.</p>
+        </div>
+      </div>
+
+      <div class="info-card small">
+        <img
+          src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80"
+          alt="Digital literacy"
+        />
+        <div class="card-content">
+          <h3>Digital Literacy</h3>
+          <p>Developing critical thinking skills is essential in the digital age.</p>
+        </div>
+      </div>
+
+      <div class="info-card small">
+        <img
+          src="https://images.unsplash.com/photo-1553484771-371a605b060b?auto=format&fit=crop&w=800&q=80"
+          alt="Future of news"
+        />
+        <div class="card-content">
+          <h3>Future of News</h3>
+          <p>AI and technology are helping combat misinformation effectively.</p>
+        </div>
+      </div>
+    </div>	
+
+    <!-- News Verifier Section -->
+    <div class="news-verifier fade-on-scroll">
+      <h2>Verify News</h2>
+        <div class="login">
+          <form action="{{ url_for('predict')}}" method="POST">
+            <textarea  name="message" rows="6" cols="50" required="required" style="font-size: 18pt" 
+            placeholder="Paste your news article here..."></textarea>
+            <br> </br>
+            <button type="submit" class="verify-button">Analyze News</button>
+        
+            <div class="results">
+              {% if prediction == ['FAKE']%}
+                    <h2 style="color:red;"> Fake News ⚠️</h2>
+              {% elif prediction == ['REAL']%}
+                    <h2 style="color:green;"><b> Real News ✅</b></h2>
+              {% elif prediction == ['REAL/FAKE']%}
+                    <H2 style="color:blue"><b>Partially True but not sure ⚠️</b></H2>
+              {% elif prediction == ['FAKE/REAL']%}
+                    <h2 style="color: burlywood;"><B>Partially False but not sure ⚠️</B></h2>
+              {% endif %}
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="login">
+
+  </div>
+
+  <script>
+    // Dark mode toggle
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    // Intersection Observer for fade animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.fade-on-scroll').forEach(element => {
+      observer.observe(element);
+    });
+
+    // Simple news verification simulation
+  </script>
+</body>
+</html>
