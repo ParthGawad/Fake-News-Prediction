@@ -31,6 +31,7 @@ also produced promising results in the detection of fake news.
 - Run `Fake_News_Det.py`, go to the `http://127.0.0.1:5000/`
 - If you want to build your model with the some changes, you can check the `Fake_News_Detection.ipynb`.
 - DISCLAIMER Sometimes predictions may be wrong because of history of dataset being used to train the model. Because of this drawback, i have implemented google geminai api as a backup if the model prediction returns false positive.
+- Before running the project, remember to unzip the 'news.csv' dataset file, or else the code will return errors.
 
 ## How It Works
 ### Model Training Process
